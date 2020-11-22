@@ -1,9 +1,6 @@
 <?php
 
 require_once(dirname(__FILE__) . '/databaseController.php');
-require_once(dirname(__FILE__) . '/../../util/uriHelper.php');
-
-checkURI(realpath(__FILE__));
 
 if (!function_exists('getUserByUsername')) {
     function getUserByUsername($username)

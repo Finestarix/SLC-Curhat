@@ -1,14 +1,3 @@
-<?php
-
-require_once(dirname(__FILE__) . '/../util/uriHelper.php');
-require_once(dirname(__FILE__) . '/../controller/core/CSRFController.php');
-
-checkURI(realpath(__FILE__));
-
-regenerateToken();
-
-?>
-
 <div class="section section-lg background-content">
     <div class="container">
         <div class="row justify-content-center">
@@ -20,7 +9,7 @@ regenerateToken();
                             Sign up
                         </div>
 
-                        <form method="POST" action="/controller/registerController.php">
+                        <form method="POST" action="/registerController">
 
                             <input type="hidden"
                                    name="CSRF_TOKEN"

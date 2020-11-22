@@ -1,9 +1,5 @@
 <?php
 
-require_once(dirname(__FILE__) . '/../../util/uriHelper.php');
-
-checkURI(realpath(__FILE__));
-
 if (!function_exists('getConnection')) {
     function getConnection()
     {

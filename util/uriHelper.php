@@ -1,13 +1,5 @@
 <?php
 
-checkURI(realpath(__FILE__));
-
-function checkURI($fileLocation)
-{
-    if ($fileLocation == realpath($_SERVER['SCRIPT_FILENAME']))
-        header('location: /');
-}
-
 if (!function_exists('getURI')) {
     function getURI()
     {

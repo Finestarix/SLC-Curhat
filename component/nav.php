@@ -1,6 +1,8 @@
 <?php
-require_once(dirname(__FILE__) . '/../util/uriHelper.php');
-checkURI(realpath(__FILE__));
+
+require_once(dirname(__FILE__) . '/../controller/core/CSRFController.php');
+regenerateToken();
+
 ?>
 
 <nav class="navbar navbar-expand-lg sticky-top background-nav">
@@ -113,7 +115,11 @@ checkURI(realpath(__FILE__));
 
                         <form role="form"
                               method="post"
-                              action="/controller/loginController.php">
+                              action="/loginController">
+
+                            <input type="hidden"
+                                   name="CSRF_TOKEN"
+                                   value="<?= getToken() ?>">
 
                             <div class="form-group mb-3">
                                 <div class="input-group input-group-alternative">

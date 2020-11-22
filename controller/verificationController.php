@@ -8,11 +8,12 @@ $verificationKey = $_GET['key'];
 
 $user = getUserByKey($verificationKey);
 
-//TODO: Add Login Session Validation
-//TODO: Check Login Session and $user->id
-
-if ($user == NULL)
-    $_SESSION['ERROR'] = 'Invalid Request !';
+if (!isset($_SESSION['USER']))
+    $_SESSION['ERROR'] = 'You must login first !';
+else if (strcmp(decryptSession($_SESSION['USER']), $user->id) != 0)
+    $_SESSION['ERROR'] = 'Invalid verification key !';
+else if ($user == NULL)
+    $_SESSION['ERROR'] = 'Invalid request !';
 else if ($user->verified == 1)
     $_SESSION['ERROR'] = 'Your account is already verified !';
 

@@ -3,11 +3,16 @@
 require_once(dirname(__FILE__) . '/core/CSRFController.php');
 require_once(dirname(__FILE__) . '/core/userController.php');
 require_once(dirname(__FILE__) . '/../util/passwordHelper.php');
+require_once(dirname(__FILE__) . '/../util/sessionHelper.php');
 
 session_start();
 
-if (!isset($_POST['CSRF_TOKEN']) || !isset($_POST['identity']) || !isset($_POST['password'])) {
-    $_SESSION['ERROR'] = 'Invalid Request !';
+if (isset($_SESSION['USER']))
+    $_SESSION['ERROR'] = 'You are already logged in !';
+else if (!isset($_POST['CSRF_TOKEN']) || !isset($_POST['identity']) || !isset($_POST['password']))
+    $_SESSION['ERROR'] = 'Invalid request !';
+
+if (isset($_SESSION['ERROR'])) {
     header('Location: /');
     die();
 }
@@ -24,21 +29,18 @@ if ($userByUsername == NULL && $userByEmail == NULL) {
     die();
 }
 
-if ($userByUsername != NULL) {
-    $passwordSalt = $userByUsername->password_salt;
-    $passwordHash = $userByUsername->password;
-} else if ($userByEmail != NULL) {
-    $passwordSalt = $userByEmail->password_salt;
-    $passwordHash = $userByEmail->password;
+$user = ($userByUsername != NULL) ? $userByUsername : $userByEmail;
+
+if (verifyPassword($user->password_salt, $password, $user->password)) {
+    $_SESSION['USER'] = encryptSession($user->id);
+} else {
+    $_SESSION['ERROR'] = 'Wrong user credentials !';
 }
 
-if (verifyPassword($passwordSalt, $password, $passwordHash)) {
-    $_SESSION['USER'] =
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
-    die();
-}
-
-var_dump($userByEmail);
-var_dump($userByUsername);
+var_dump(decryptSession($_SESSION['USER']));
 die();
+
+header('Location: /');
+
+
 

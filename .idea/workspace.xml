@@ -3,16 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="cbee2d0c-24b0-4167-be41-308528b640b6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/component/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/nav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/core/CSRFController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/core/CSRFController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/core/userController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/core/userController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/loginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/loginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/registerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/registerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/routing/routingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/routing/routingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/initialize.php" beforeDir="false" afterPath="$PROJECT_DIR$/initialize.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/generatorHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/util/generatorHelper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/verificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/verificationController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +80,7 @@
       <workItem from="1605843569121" duration="9491000" />
       <workItem from="1605887419714" duration="1210000" />
       <workItem from="1605930536664" duration="11810000" />
-      <workItem from="1606025123688" duration="19105000" />
+      <workItem from="1606025123688" duration="24750000" />
     </task>
     <servers />
   </component>
@@ -101,10 +96,11 @@
       <screen x="0" y="0" width="1366" height="736" />
     </state>
     <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.736/-1366.0.1366.738@0.0.1366.736" timestamp="1605696382946" />
-    <state x="517" y="291" key="NewPhpFileDialog" timestamp="1606047280040">
+    <state x="517" y="291" key="NewPhpFileDialog" timestamp="1606052540878">
       <screen x="0" y="0" width="1366" height="736" />
     </state>
     <state x="517" y="291" key="NewPhpFileDialog/0.0.1366.736/-1366.0.1366.738@0.0.1366.736" timestamp="1606047280040" />
+    <state x="517" y="291" key="NewPhpFileDialog/0.0.1366.736@0.0.1366.736" timestamp="1606052540878" />
     <state x="517" y="292" key="NewPhpFileDialog/0.0.1366.738/-1366.0.1366.738@0.0.1366.738" timestamp="1605804637726" />
     <state x="184" y="13" key="SettingsEditor" timestamp="1605694979447">
       <screen x="0" y="0" width="1366" height="736" />
@@ -114,6 +110,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1366.738/-1366.0.1366.738@0.0.1366.738" timestamp="1605804715561" />
+    <state x="500" y="282" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606050417196">
+      <screen x="0" y="0" width="1366" height="736" />
+    </state>
+    <state x="500" y="282" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.736/-1366.0.1366.738@0.0.1366.736" timestamp="1606050417196" />
     <state x="339" y="165" key="run.anything.popup" timestamp="1605931375238">
       <screen x="0" y="0" width="1366" height="736" />
     </state>

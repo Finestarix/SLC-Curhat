@@ -1,6 +1,8 @@
 <?php
 
 require_once(dirname(__FILE__) . '/databaseController.php');
+require_once(dirname(__FILE__) . '/../../util/sessionHelper.php');
+
 
 if (!function_exists('getUserByUsername')) {
     function getUserByUsername($username)
@@ -45,6 +47,24 @@ if (!function_exists('getUserByKey')) {
 
         $preparedStatement = $connection->prepare($query);
         $preparedStatement->bind_param("s", $key);
+        $preparedStatement->execute();
+
+        $result = $preparedStatement->get_result();
+
+        return $result->fetch_object();
+    }
+}
+
+if (!function_exists('getCurrentUser')) {
+    function getCurrentUser()
+    {
+        $connection = getConnection();
+
+        $query =  "SELECT * FROM `users` WHERE `id` = ?";
+
+        $id = decryptSession($_SESSION['USER']);
+        $preparedStatement = $connection->prepare($query);
+        $preparedStatement->bind_param("s", $id);
         $preparedStatement->execute();
 
         $result = $preparedStatement->get_result();

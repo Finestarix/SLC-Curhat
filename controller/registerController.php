@@ -10,7 +10,7 @@ if (!isset($_POST['CSRF_TOKEN']) || !isset($_POST['username']) || !isset($_POST[
     !isset($_POST['password']) || !isset($_POST['confirm-password']) || !isset($_POST['birthdate-day']) ||
     !isset($_POST['birthdate-month']) || !isset($_POST['birthdate-year']) || !isset($_POST['gender']) ||
     !isset($_POST['campus'])) {
-    $_SESSION['ERROR'] = 'Invalid Request !';
+    $_SESSION['ERROR'] = 'Invalid request !';
     header('Location: /');
     die();
 }

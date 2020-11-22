@@ -22,4 +22,8 @@ class RoutingController {
         include 'controller/registerController.php';
     }
 
+    public function verification() {
+        include 'controller/verificationController.php';
+    }
+
 }

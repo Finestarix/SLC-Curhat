@@ -123,15 +123,17 @@ require_once('util/reportHelper.php');
                     PRIMARY KEY (`key`)
                 ) CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;",
                 "CREATE TABLE `users` (
-                    `id` char(40) NOT NULL,
-                    `username` varchar(255) NOT NULL,
-                    `email` varchar(255) NOT NULL,
-                    `password` varchar(255) NOT NULL,
-                    `password_salt` varchar(255) NOT NULL,
+                    `id` CHAR(40) NOT NULL,
+                    `username` VARCHAR(255) NOT NULL,
+                    `email` VARCHAR(255) NOT NULL,
+                    `password` VARCHAR(255) NOT NULL,
+                    `password_salt` VARCHAR(255) NOT NULL,
                     `birthdate` DATE NOT NULL,
-                    `gender` varchar(6) NOT NULL,
-                    `location` varchar(12) NOT NULL,
-                    `point` int NOT NULL,
+                    `gender` VARCHAR(6) NOT NULL,
+                    `location` VARCHAR(12) NOT NULL,
+                    `point` INT NOT NULL,
+                    `key` VARCHAR(100) NOT NULL,
+                    `verified` TINYINT NOT NULL,
                     `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
                     PRIMARY KEY (`id`)
                 ) CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;",
@@ -140,7 +142,8 @@ require_once('util/reportHelper.php');
             $tableInsertQueries = [
                 'INSERT INTO `app_config` (`key`, `value`) VALUES (?, ?)',
                 'INSERT INTO `users` (`id`, `username`, `email`, `password`, `password_salt`, 
-                 `birthdate`, `gender`, `location`, `point`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                 `birthdate`, `gender`, `location`, `point`, `key`, `verified`) 
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
             ];
 
             foreach ($tableDropQueries as $tableDropQuery)
@@ -171,7 +174,7 @@ require_once('util/reportHelper.php');
 
             $userSeeder = [
                 [
-                    'ssssssssi',
+                    'ssssssssiss',
                     '242f6b8c-1b3b-4c13-9394-412778e58ec1',
                     'Finestarix',
                     'irenaldyleonarto@gmail.com',
@@ -180,10 +183,12 @@ require_once('util/reportHelper.php');
                     '2000-10-03',
                     'Male',
                     'Kemanggisan',
-                    15000
+                    15000,
+                    '7102845f8c1425ba8503419208134f5816dda90d',
+                    0
                 ],
                 [
-                    'ssssssssi',
+                    'ssssssssiss',
                     '233173a0-bd48-11ea-b3de-0242ac130004',
                     'LAZER_WAVE',
                     'lazerwave@gmail.com',
@@ -192,7 +197,9 @@ require_once('util/reportHelper.php');
                     '2000-05-24',
                     'Male',
                     'Kemanggisan',
-                    10000
+                    10000,
+                    '7102845f8c1425ba8503419208134f5816dda90e',
+                    1
                 ]
             ];
 

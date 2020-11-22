@@ -26,6 +26,7 @@
                                     <input class="form-control"
                                            type="text"
                                            name="username"
+                                           value=""
                                            id="username"
                                            placeholder="Username">
                                 </div>
@@ -42,6 +43,7 @@
                                     <input class="form-control"
                                            type="text"
                                            name="email"
+                                           value=""
                                            id="email"
                                            placeholder="Email Address">
                                 </div>
@@ -58,6 +60,7 @@
                                     <input class="form-control"
                                            type="password"
                                            name="password"
+                                           value=""
                                            id="password"
                                            placeholder="Password">
                                 </div>
@@ -74,6 +77,7 @@
                                     <input class="form-control"
                                            type="password"
                                            name="confirm-password"
+                                           value=""
                                            id="confirm-password"
                                            placeholder="Confirm Password">
                                 </div>
@@ -85,7 +89,7 @@
                                     <div class="input-group-append col-sm-4 mr-0 pr-0">
                                         <select name="birthdate-day"
                                                 class="form-control">
-                                            <option value="0" disabled selected>Day</option>
+                                            <option value="0" selected="selected">Day</option>
                                             <?php
                                             foreach (range(1, 31) as $date)
                                                 echo "<option value=" . $date . ">" . $date . "</option>"
@@ -95,7 +99,7 @@
                                     <div class="input-group-append col-sm-4 mr-0 pr-0">
                                         <select name="birthdate-month"
                                                 class="form-control">
-                                            <option value="0" disabled selected>Month</option>
+                                            <option value="0" selected="selected">Month</option>
                                             <?php
                                             $month_list = ['January', 'February', 'March', 'April',
                                                 'May', 'June', 'July', 'August',
@@ -108,7 +112,7 @@
                                     <div class="input-group-append col-sm-4 mr-0 pr-0">
                                         <select name="birthdate-year"
                                                 class="form-control">
-                                            <option value="0" disabled selected>Year</option>
+                                            <option value="0" selected="selected">Year</option>
                                             <?php
                                             foreach (range(2004, 1985) as $date)
                                                 echo "<option value=" . $date . ">" . $date . "</option>"
@@ -127,7 +131,7 @@
                                         </span>
                                     </div>
                                     <select name="gender" class="form-control">
-                                        <option disabled selected>Select Gender</option>
+                                        <option selected="selected">Select Gender</option>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
                                     </select>
@@ -143,7 +147,7 @@
                                         </span>
                                     </div>
                                     <select name="campus" class="form-control">
-                                        <option disabled selected>Select Campus</option>
+                                        <option selected="selected">Select Campus</option>
                                         <option value="kemanggisan">Kemanggisan</option>
                                         <option value="alsut">Alam Sutera</option>
                                         <option value="bekasi">Bekasi</option>
@@ -159,6 +163,7 @@
                                 <div class="custom-control custom-control-alternative custom-checkbox">
                                     <input class="custom-control-input"
                                            id="terms-condition"
+                                           value=""
                                            name="terms-condition"
                                            type="checkbox">
                                     <label class="custom-control-label"
@@ -167,28 +172,6 @@
                                     </label>
                                 </div>
                             </div>
-
-                            <?php
-                            if (isset($_SESSION['ERROR'])) {
-                                ?>
-                                <div class="alert alert-danger mt-3" role="alert">
-                                    <?= $_SESSION['ERROR'] ?>
-                                </div>
-                                <?php
-                                unset($_SESSION['ERROR']);
-                            }
-                            ?>
-
-                            <?php
-                            if (isset($_SESSION['SUCCESS'])) {
-                                ?>
-                                <div class="alert alert-success mt-3" role="alert">
-                                    <?= $_SESSION['SUCCESS'] ?>
-                                </div>
-                                <?php
-                                unset($_SESSION['SUCCESS']);
-                            }
-                            ?>
 
                             <div class="text-center">
                                 <button type="submit"

@@ -1,15 +1,5 @@
 <?php
 
-if (!function_exists('generateRandomString')) {
-    function generateHashPassword($password)
-    {
-        $passwordSalt = bin2hex(random_bytes(10));
-        $passwordPepper = 'SLC-Curhat';
-        $passwordHash = password_hash($passwordPepper . $passwordSalt . $password, PASSWORD_BCRYPT);
-        return array($passwordSalt, $passwordHash);
-    }
-}
-
 if (!function_exists('generateUUID')) {
     function generateUUID()
     {
@@ -23,11 +13,11 @@ if (!function_exists('generateUUID')) {
     }
 }
 
-if (!function_exists('generateCSRF')) {
-    function generateCSRF()
+if (!function_exists('generateRandom')) {
+    function generateRandom($size)
     {
         try {
-            return bin2hex(random_bytes(64));
+            return bin2hex(random_bytes($size));
         } catch (Exception $e) {
         }
     }

@@ -2,18 +2,15 @@
 
 require_once(dirname(__FILE__) . '/core/CSRFController.php');
 require_once(dirname(__FILE__) . '/core/userController.php');
-require_once(dirname(__FILE__) . '/../util/generatorHelper.php');
+require_once(dirname(__FILE__) . '/../util/passwordHelper.php');
 
 session_start();
 
-if (!isset($_POST['CSRF_TOKEN']) && checkToken($_POST['CSRF_TOKEN']))
-    $_SESSION['ERROR'] = 'Invalid CSRF Token !';
-else if (!isset($_POST['username']) || !isset($_POST['email']) || !isset($_POST['password']) ||
-    !isset($_POST['confirm-password']) || !isset($_POST['birthdate-day']) || !isset($_POST['birthdate-month']) ||
-    !isset($_POST['birthdate-year']) || !isset($_POST['gender']) || !isset($_POST['campus']))
-    $_SESSION['ERROR'] = 'All field must be filled !';
-
-if (isset($_SESSION['ERROR'])) {
+if (!isset($_POST['CSRF_TOKEN']) || !isset($_POST['username']) || !isset($_POST['email']) ||
+    !isset($_POST['password']) || !isset($_POST['confirm-password']) || !isset($_POST['birthdate-day']) ||
+    !isset($_POST['birthdate-month']) || !isset($_POST['birthdate-year']) || !isset($_POST['gender']) ||
+    !isset($_POST['campus'])) {
+    $_SESSION['ERROR'] = 'Invalid Request !';
     header('Location: /');
     die();
 }
@@ -33,7 +30,9 @@ $user->gender = (strcmp($_POST['gender'], "male") == 0) ? "Male" : "Female";
 $user->location = (strcmp($_POST['campus'], "kemanggisan") == 0) ? "Kemanggisan" :
     (strcmp($_POST['campus'], "alsut") == 0) ? "Alam Sutera" : "Bekasi";
 
-if (strlen($user->username) <= 5)
+if (checkToken($_POST['CSRF_TOKEN']))
+    $_SESSION['ERROR'] = 'Invalid CSRF Token !';
+else if (strlen($user->username) <= 5)
     $_SESSION['ERROR'] = 'Username length must more than 5 characters !';
 else if (getUserByUsername($user->username) != NULL)
     $_SESSION['ERROR'] = 'Username must be unique !';
@@ -48,11 +47,11 @@ else if (strcmp($user->password, $confirmPassword) != 0)
 else if (!checkdate($birthdateMonth, $birthdateDay, $birthdateYear))
     $_SESSION['ERROR'] = 'Invalid birthdate !';
 else if (strcmp($user->gender, "Male") != 0 &&
-            strcmp($user->gender, "Female") != 0)
+    strcmp($user->gender, "Female") != 0)
     $_SESSION['ERROR'] = 'Invalid gender !';
 else if (strcmp($user->location, "Kemanggisan") != 0 &&
-            strcmp($user->location, "Alam Sutera") != 0 &&
-            strcmp($user->location, "Bekasi") != 0)
+    strcmp($user->location, "Alam Sutera") != 0 &&
+    strcmp($user->location, "Bekasi") != 0)
     $_SESSION['ERROR'] = 'Invalid campus location !';
 else if ($termsCondition == NULL)
     $_SESSION['ERROR'] = 'Please accept out terms and agreement !';
@@ -62,16 +61,31 @@ if (isset($_SESSION['ERROR'])) {
     die();
 }
 
-$user->id = generateUUID();
+$user->verified = 0;
 $user->point = 0;
-list($user->password_salt, $user->password) = generateHashPassword($user->password);
+
+$user->id = generateUUID();
+$user->key = generateRandom(20);
+
+list($user->password_salt, $user->password) = hashPassword($user->password);
 
 date_default_timezone_set('Asia/Jakarta');
 $user->created_at = date('Y-m-d H:i:s');
 
-insertUser($user);
+$affectedRow = insertUser($user);
 
-$_SESSION['SUCCESS'] = 'Register Success !';
+if ($affectedRow == 1) {
+    $_SESSION['SUCCESS'] = 'Register success ! Please check your email !';
+
+    $subject = "Email Verification";
+    $message = "<style> * { margin: 0; padding: 0; }</style><table style='width: 100%; background-color: #f5f7f9;'> <tr> <td style='align-content: center;'> <table style='width: 100%;'> <tr> <td style='padding: 25px 0;text-align: center;'> <p style='color: #839197; font-size: 30px; font-weight: bold;'>SLC-Curhat</p> </td> </tr> <tr> <td style='width: 100%; border-top: 1px solid #e7eaec; border-bottom: 1px solid #e7eaec; background-color: #ffffff;'> <table style='align-content: center; width: 570px; margin: 0 auto;'> <tr> <td style='padding: 35px;'> <h1 style='color: #292e31; font-size: 19px; font-weight: bold; text-align: left;'> Thanks for signing up for SLC-Curhat !</h1> <table style='width: 100%; margin: 30px auto; padding: 0; text-align: center;'> <tr> <td style='align-content: center'> <a style='color: #ffffff; font-size: 15px; line-height: 45px; text-align: center; display: inline-block; width: 200px; background-color: #414ef9; border-radius: 3px; text-decoration: none;' href='http://localhost:8080/verification?key=$user->key'> Click Here to Verify Email </a> </td> </tr> </table> </td> </tr> </table> </td> </tr> <tr> <td> <table style='width: 570px; margin: 0 auto; padding: 0; text-align: center;'> <tr> <td style='padding: 35px;'> <p style='color: #839197; font-size: 12px; line-height: 1.5em; text-align: center;'> SLC-Curhat, Inc. <br> Software Laboratory Center, Bina Nusantara University </p> </td> </tr> </table> </td> </tr> </table> </td> </tr></table>";
+    $headers = "From: slc-curhat@gmail.com \r\n";
+    $headers .= "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+    mail($user->email, $subject, $message, $headers);
+} else
+    $_SESSION['ERROR'] = 'Failed to insert user !';
 
 header('Location: ' . $_SERVER['HTTP_REFERER']);
 

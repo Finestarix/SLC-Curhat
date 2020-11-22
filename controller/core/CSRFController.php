@@ -5,7 +5,7 @@ require_once(dirname(__FILE__) . '/../../util/generatorHelper.php');
 if (!function_exists('regenerateToken')) {
     function regenerateToken()
     {
-        $_SESSION["CSRF_TOKEN"] = generateCSRF();
+        $_SESSION["CSRF_TOKEN"] = generateRandom(64);
     }
 }
 

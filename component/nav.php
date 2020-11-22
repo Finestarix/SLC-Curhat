@@ -147,23 +147,18 @@ checkURI(realpath(__FILE__));
 
                             <div class="text-center">
                                 <button type="submit"
-                                        class="btn btn-primary my-4">
+                                        class="btn btn-primary mt-3">
                                     Sign in
                                 </button>
                             </div>
 
                         </form>
-
-                        <p class="text-center mb-0">
-                            <a href="/register">Sign Up</a>
-                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 
 <style>
     .no-underline {

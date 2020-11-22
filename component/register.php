@@ -1,7 +1,11 @@
 <?php
 
 require_once(dirname(__FILE__) . '/../util/uriHelper.php');
+require_once(dirname(__FILE__) . '/../controller/core/CSRFController.php');
+
 checkURI(realpath(__FILE__));
+
+regenerateToken();
 
 ?>
 
@@ -18,7 +22,9 @@ checkURI(realpath(__FILE__));
 
                         <form method="POST" action="/controller/registerController.php">
 
-                            <!-- CSRF Token -->
+                            <input type="hidden"
+                                   name="CSRF_TOKEN"
+                                   value="<?= getToken() ?>">
 
                             <div class="form-group">
                                 <label for="username">Username</label>
@@ -32,8 +38,7 @@ checkURI(realpath(__FILE__));
                                            type="text"
                                            name="username"
                                            id="username"
-                                           placeholder="Username"
-                                           required>
+                                           placeholder="Username">
                                 </div>
                             </div>
 
@@ -46,11 +51,10 @@ checkURI(realpath(__FILE__));
                                         </span>
                                     </div>
                                     <input class="form-control"
-                                           type="email"
+                                           type="text"
                                            name="email"
                                            id="email"
-                                           placeholder="Email Address"
-                                           required>
+                                           placeholder="Email Address">
                                 </div>
                             </div>
 
@@ -66,8 +70,7 @@ checkURI(realpath(__FILE__));
                                            type="password"
                                            name="password"
                                            id="password"
-                                           placeholder="Password"
-                                           required>
+                                           placeholder="Password">
                                 </div>
                             </div>
 
@@ -83,8 +86,7 @@ checkURI(realpath(__FILE__));
                                            type="password"
                                            name="confirm-password"
                                            id="confirm-password"
-                                           placeholder="Confirm Password"
-                                           required>
+                                           placeholder="Confirm Password">
                                 </div>
                             </div>
 
@@ -94,7 +96,7 @@ checkURI(realpath(__FILE__));
                                     <div class="input-group-append col-sm-4 mr-0 pr-0">
                                         <select name="birthdate-day"
                                                 class="form-control">
-                                            <option disabled selected>Day</option>
+                                            <option value="0" disabled selected>Day</option>
                                             <?php
                                             foreach (range(1, 31) as $date)
                                                 echo "<option value=" . $date . ">" . $date . "</option>"
@@ -104,7 +106,7 @@ checkURI(realpath(__FILE__));
                                     <div class="input-group-append col-sm-4 mr-0 pr-0">
                                         <select name="birthdate-month"
                                                 class="form-control">
-                                            <option disabled selected>Month</option>
+                                            <option value="0" disabled selected>Month</option>
                                             <?php
                                             $month_list = ['January', 'February', 'March', 'April',
                                                 'May', 'June', 'July', 'August',
@@ -117,7 +119,7 @@ checkURI(realpath(__FILE__));
                                     <div class="input-group-append col-sm-4 mr-0 pr-0">
                                         <select name="birthdate-year"
                                                 class="form-control">
-                                            <option disabled selected>Year</option>
+                                            <option value="0" disabled selected>Year</option>
                                             <?php
                                             foreach (range(2004, 1985) as $date)
                                                 echo "<option value=" . $date . ">" . $date . "</option>"
@@ -135,13 +137,12 @@ checkURI(realpath(__FILE__));
                                             <i class="fas fa-venus-mars"></i>
                                         </span>
                                     </div>
-                                    <select name="gender" class="form-control" required>
+                                    <select name="gender" class="form-control">
                                         <option disabled selected>Select Gender</option>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
                                     </select>
                                 </div>
-                                <div class="invalid-feedback" id="gender-feedback"></div>
                             </div>
 
                             <div class="form-group focused">
@@ -152,7 +153,7 @@ checkURI(realpath(__FILE__));
                                             <i class="fas fa-award"></i>
                                         </span>
                                     </div>
-                                    <select name="campus" class="form-control" required="">
+                                    <select name="campus" class="form-control">
                                         <option disabled selected>Select Campus</option>
                                         <option value="kemanggisan">Kemanggisan</option>
                                         <option value="alsut">Alam Sutera</option>
@@ -165,34 +166,53 @@ checkURI(realpath(__FILE__));
                                  data-sitekey="6LeBneUZAAAAAGHT1XUyOW_om6CxcF4rQeb2DEeZ">
                             </div>
 
+                            <div class="mt-3">
+                                <div class="custom-control custom-control-alternative custom-checkbox">
+                                    <input class="custom-control-input"
+                                           id="terms-condition"
+                                           name="terms-condition"
+                                           type="checkbox">
+                                    <label class="custom-control-label"
+                                           for="terms-condition">
+                                        I Agree with the Terms And Condition
+                                    </label>
+                                </div>
+                            </div>
+
+                            <?php
+                            if (isset($_SESSION['ERROR'])) {
+                                ?>
+                                <div class="alert alert-danger mt-3" role="alert">
+                                    <?= $_SESSION['ERROR'] ?>
+                                </div>
+                                <?php
+                                unset($_SESSION['ERROR']);
+                            }
+                            ?>
+
+                            <?php
+                            if (isset($_SESSION['SUCCESS'])) {
+                                ?>
+                                <div class="alert alert-success mt-3" role="alert">
+                                    <?= $_SESSION['SUCCESS'] ?>
+                                </div>
+                                <?php
+                                unset($_SESSION['SUCCESS']);
+                            }
+                            ?>
+
+                            <div class="text-center">
+                                <button type="submit"
+                                        id="btn-register"
+                                        class="btn btn-primary mt-3 btn-submit">
+                                    Sign Up
+                                </button>
+                            </div>
+
                         </form>
                     </div>
-
-                    <div class="row mt-0 ml-5">
-                        <div class="custom-control custom-control-alternative custom-checkbox">
-                            <input class="custom-control-input"
-                                   id="customCheckRegister"
-                                   name="terms-condition"
-                                   type="checkbox"
-                                   required>
-                            <label class="custom-control-label"
-                                   for="customCheckRegister">
-                                I Agree with the Terms And Condition
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="text-center">
-                        <button type="submit"
-                                id="btn-register"
-                                class="btn btn-primary my-4 btn-submit">
-                            Sign Up
-                        </button>
-                    </div>
-
                 </div>
             </div>
         </div>
     </div>
-
 </div>

@@ -127,6 +127,7 @@ require_once('util/reportHelper.php');
                     `username` varchar(255) NOT NULL,
                     `email` varchar(255) NOT NULL,
                     `password` varchar(255) NOT NULL,
+                    `password_salt` varchar(255) NOT NULL,
                     `birthdate` DATE NOT NULL,
                     `gender` varchar(6) NOT NULL,
                     `location` varchar(12) NOT NULL,
@@ -138,8 +139,8 @@ require_once('util/reportHelper.php');
 
             $tableInsertQueries = [
                 'INSERT INTO `app_config` (`key`, `value`) VALUES (?, ?)',
-                'INSERT INTO `users` (`id`, `username`, `email`, `password`, `birthdate`,
-                 `gender`, `location`, `point`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+                'INSERT INTO `users` (`id`, `username`, `email`, `password`, `password_salt`, 
+                 `birthdate`, `gender`, `location`, `point`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
             ];
 
             foreach ($tableDropQueries as $tableDropQuery)
@@ -170,22 +171,24 @@ require_once('util/reportHelper.php');
 
             $userSeeder = [
                 [
-                    'sssssssi',
+                    'ssssssssi',
                     '242f6b8c-1b3b-4c13-9394-412778e58ec1',
                     'Finestarix',
                     'irenaldyleonarto@gmail.com',
-                    '$2y$10$UqmNJnuQqAi0n.V7J0ZDa.lvBt5zQX/GqyUxXKl0ik8ZloCpk8Q3q',
+                    '$2y$10$/c14jpF0mw9ZBpGSNFGUTe4S16vW1vghnyPqBZUo/K2GKyhYaFjP6',
+                    'e9c85e8ef7d73a97b5e4',
                     '2000-10-03',
                     'Male',
                     'Kemanggisan',
                     15000
                 ],
                 [
-                    'sssssssi',
+                    'ssssssssi',
                     '233173a0-bd48-11ea-b3de-0242ac130004',
                     'LAZER_WAVE',
                     'lazerwave@gmail.com',
-                    '$2y$10$UqmNJnuQqAi0n.V7J0ZDa.lvBt5zQX/GqyUxXKl0ik8ZloCpk8Q3q',
+                    '$2y$10$46NO8TYJ2OOJ45DYlojzK.5dQwV.9Q7yG8AATR/vjmF5s6X8v1SZG',
+                    '0358daaecc0e305e1d3b',
                     '2000-05-24',
                     'Male',
                     'Kemanggisan',

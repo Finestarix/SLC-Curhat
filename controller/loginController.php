@@ -37,9 +37,6 @@ if (verifyPassword($user->password_salt, $password, $user->password)) {
     $_SESSION['ERROR'] = 'Wrong user credentials !';
 }
 
-var_dump(decryptSession($_SESSION['USER']));
-die();
-
 header('Location: /');
 
 

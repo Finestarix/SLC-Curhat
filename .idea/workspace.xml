@@ -3,11 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="cbee2d0c-24b0-4167-be41-308528b640b6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/component/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/nav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/core/userController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/core/userController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/register.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/loginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/loginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/registerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/registerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/verificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/verificationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/routing/routingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/routing/routingController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,9 +37,10 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="ApacheConfig" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/controller" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ReXtube" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -48,7 +49,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -67,7 +68,10 @@
       <recent name="D:\New Assistant Recuitment\4. NAR 21-1\02. Core Training NAR 21-1\PHPH3Special\Answer\vendor\bootstrap\css" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="cbee2d0c-24b0-4167-be41-308528b640b6" name="Default Changelist" comment="" />
@@ -81,30 +85,34 @@
       <workItem from="1605887419714" duration="1210000" />
       <workItem from="1605930536664" duration="11810000" />
       <workItem from="1606025123688" duration="24750000" />
+      <workItem from="1606459588099" duration="5086000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605765547286">
       <screen x="0" y="0" width="1366" height="736" />
     </state>
     <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.736/-1366.0.1366.738@0.0.1366.736" timestamp="1605765547286" />
-    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1605696382946">
-      <screen x="0" y="0" width="1366" height="736" />
+    <state x="463" y="122" key="FileChooserDialogImpl" timestamp="1606462991491">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1606462991491" />
     <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.736/-1366.0.1366.738@0.0.1366.736" timestamp="1605696382946" />
-    <state x="517" y="291" key="NewPhpFileDialog" timestamp="1606052540878">
-      <screen x="0" y="0" width="1366" height="736" />
+    <state x="517" y="288" key="NewPhpFileDialog" timestamp="1606464271367">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="517" y="288" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1606464271367" />
     <state x="517" y="291" key="NewPhpFileDialog/0.0.1366.736/-1366.0.1366.738@0.0.1366.736" timestamp="1606047280040" />
     <state x="517" y="291" key="NewPhpFileDialog/0.0.1366.736@0.0.1366.736" timestamp="1606052540878" />
     <state x="517" y="292" key="NewPhpFileDialog/0.0.1366.738/-1366.0.1366.738@0.0.1366.738" timestamp="1605804637726" />
-    <state x="184" y="13" key="SettingsEditor" timestamp="1605694979447">
-      <screen x="0" y="0" width="1366" height="736" />
+    <state x="184" y="13" key="SettingsEditor" timestamp="1606459633207">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="184" y="13" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1606459633207" />
     <state x="184" y="13" key="SettingsEditor/0.0.1366.736/-1366.0.1366.738@0.0.1366.736" timestamp="1605694979447" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1605804715561">
       <screen x="0" y="0" width="1366" height="738" />

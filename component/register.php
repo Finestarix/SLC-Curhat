@@ -1,3 +1,10 @@
+<?php
+
+if (isset($_SESSION['USER']))
+    unset($_SESSION['USER']);
+
+?>
+
 <div class="section section-lg background-content">
     <div class="container">
         <div class="row justify-content-center">

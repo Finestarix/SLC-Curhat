@@ -28,7 +28,7 @@ session_regenerate_id();
             </a>
 
             <div class="m-0 p-0 dropdown">
-                <div class="pl-5 dropdown-toggle color-secondary h6">
+                <div class="pl-5 dropdown-toggle color-secondary h6" style="cursor: pointer">
                     Explore
                 </div>
                 <div class="m-0 p-2 dropdown-menu">
@@ -114,13 +114,13 @@ session_regenerate_id();
         if (isset($_SESSION['USER'])) {
             ?>
             <div class="d-flex flex-row align-items-center justify-content-center">
-                <div style="font-size: 25px"
+                <div style="font-size: 25px; cursor: pointer;"
                      class="mr-5">
                     <i class="fas fa-envelope"></i>
                 </div>
 
                 <div class="mr-5 dropdown">
-                    <div class="dropdown-toggle" style="font-size: 25px">
+                    <div class="dropdown-toggle" style="font-size: 25px; cursor: pointer">
                         <i class="fas fa-user"></i>
                     </div>
                     <div class="m-0 p-2 dropdown-menu">

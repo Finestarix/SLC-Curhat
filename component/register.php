@@ -1,16 +1,9 @@
-<?php
-
-if (isset($_SESSION['USER']))
-    unset($_SESSION['USER']);
-
-?>
-
 <div class="section section-lg background-content">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 <div class="mt-5 mb-5 card bg-light shadow border-0">
-                    <div class="card-body px-lg-5 py-lg-5 color-secondary">
+                    <div class="card-body px-lg-5 py-lg-5 color-content">
 
                         <div class="mb-2 text-center h4">
                             Sign up
@@ -170,7 +163,6 @@ if (isset($_SESSION['USER']))
                                 <div class="custom-control custom-control-alternative custom-checkbox">
                                     <input class="custom-control-input"
                                            id="terms-condition"
-                                           value=""
                                            name="terms-condition"
                                            type="checkbox">
                                     <label class="custom-control-label"

@@ -15,8 +15,12 @@ a {
     text-decoration: none !important;
 }
 
+.message-icon:hover,
 .dropdown-toggle:hover,
-a:hover,
+a:hover {
+    color: #1B2845 !important;
+}
+
 .dropdown-effect:hover > i,
 .dropdown-effect:hover > div {
     color: white !important;

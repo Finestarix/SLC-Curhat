@@ -1,17 +1,21 @@
-.color-main {
-    color: #65AFFF;
+.color-nav {
+    color: #ffffff !important;
 }
 
-.color-secondary {
-    color: #1B2845;
+.color-nav-2 {
+    color: #10385d !important;
+}
+
+.color-content {
+    color: #1b1e21;
 }
 
 .background-nav {
-    background-color: #65AFFF;
+    background-color: #2196f3;
 }
 
 .background-content {
-    background-color: #3361c8;
+    background-color: #bbdefb;
 }
 
 

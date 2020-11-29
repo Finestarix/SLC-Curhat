@@ -14,9 +14,11 @@
                 <div class="card bg-light border-0 mb-0">
                     <div class="card-body px-lg-5 py-lg-5">
 
-                        <div class="text-center mb-4">
+                        <div class="text-center h4">
                             <div class="h5">Login</div>
                         </div>
+
+                        <div class="dropdown-divider my-3"></div>
 
                         <form role="form"
                               method="post"

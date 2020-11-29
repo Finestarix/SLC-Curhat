@@ -30,15 +30,8 @@ class RoutingController {
         include 'controller/verificationController.php';
     }
 
-    public function post() {
-        session_start();
-        if (!isset($_SESSION['USER'])) {
-            $_SESSION['ERROR'] = "Please log in first !";
-            header('Location: /');
-            die();
-        }
-
-        include 'post.php';
+    public function storeSecret() {
+        include 'controller/addSecretController.php';
     }
 
 }

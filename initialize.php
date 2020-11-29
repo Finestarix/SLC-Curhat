@@ -112,6 +112,7 @@ require_once('util/reportHelper.php');
 
             $tableDropQueries = [
                 "DROP TABLE IF EXISTS `app_config`",
+                "DROP TABLE IF EXISTS `secret`",
                 "DROP TABLE IF EXISTS `users`",
             ];
 
@@ -137,6 +138,14 @@ require_once('util/reportHelper.php');
                     `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
                     PRIMARY KEY (`id`)
                 ) CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;",
+                "CREATE TABLE `secret` (
+                    `id` CHAR(40) NOT NULL,
+                    `user_id` VARCHAR(40) NOT NULL,
+                    `content` VARCHAR(255) NOT NULL,
+                    `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                    PRIMARY KEY (`id`),
+                    FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON UPDATE CASCADE ON DELETE CASCADE
+                ) CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;",
             ];
 
             $tableInsertQueries = [
@@ -144,6 +153,7 @@ require_once('util/reportHelper.php');
                 'INSERT INTO `users` (`id`, `username`, `email`, `password`, `password_salt`, 
                  `birthdate`, `gender`, `location`, `point`, `key`, `verified`) 
                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                'INSERT INTO `secret` (`id`, `user_id`, `content`) VALUES (?, ?, ?)',
             ];
 
             foreach ($tableDropQueries as $tableDropQuery)
@@ -185,21 +195,28 @@ require_once('util/reportHelper.php');
                     'Kemanggisan',
                     15000,
                     '7102845f8c1425ba8503419208134f5816dda90d',
-                    0
+                    1
+                ]
+            ];
+
+            $secretSeeder = [
+                [
+                    'sss',
+                    'db90a3ec-271e-4b87-9404-7163d6c1ff24',
+                    '242f6b8c-1b3b-4c13-9394-412778e58ec1',
+                    'Content 1',
                 ],
                 [
-                    'ssssssssiss',
-                    '233173a0-bd48-11ea-b3de-0242ac130004',
-                    'LAZER_WAVE',
-                    'lazerwave@gmail.com',
-                    '$2y$10$46NO8TYJ2OOJ45DYlojzK.5dQwV.9Q7yG8AATR/vjmF5s6X8v1SZG',
-                    '0358daaecc0e305e1d3b',
-                    '2000-05-24',
-                    'Male',
-                    'Kemanggisan',
-                    10000,
-                    '7102845f8c1425ba8503419208134f5816dda90e',
-                    1
+                    'sss',
+                    'e6b889aa-d4bc-482f-87ae-00ab304b894c',
+                    '242f6b8c-1b3b-4c13-9394-412778e58ec1',
+                    'Content 2',
+                ],
+                [
+                    'sss',
+                    '639350b2-5a2c-41f2-a1d1-ff004cf4a0ed',
+                    '242f6b8c-1b3b-4c13-9394-412778e58ec1',
+                    'Content 3',
                 ]
             ];
 
@@ -211,6 +228,10 @@ require_once('util/reportHelper.php');
                 [
                     $tableInsertQueries[1],
                     $userSeeder
+                ],
+                [
+                    $tableInsertQueries[2],
+                    $secretSeeder
                 ],
             ];
 
@@ -245,6 +266,10 @@ require_once('util/reportHelper.php');
 
             echo createReport($reportSeederName, [
                 "Users data entered (" . count($userSeeder) . " data(s))",
+            ]);
+
+            echo createReport($reportSeederName, [
+                "Secret data entered (" . count($secretSeeder) . " data(s))",
             ]);
 
             $URI = '/';

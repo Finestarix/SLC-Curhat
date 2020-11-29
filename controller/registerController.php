@@ -3,17 +3,24 @@
 require_once(dirname(__FILE__) . '/core/CSRFController.php');
 require_once(dirname(__FILE__) . '/core/userController.php');
 require_once(dirname(__FILE__) . '/../util/passwordHelper.php');
+require_once(dirname(__FILE__) . '/../util/captchaHelper.php');
+require_once(dirname(__FILE__) . '/../util/generatorHelper.php');
 
 session_start();
 
 if (!isset($_POST['CSRF_TOKEN']) || !isset($_POST['username']) || !isset($_POST['email']) ||
     !isset($_POST['password']) || !isset($_POST['confirm-password']) || !isset($_POST['birthdate-day']) ||
     !isset($_POST['birthdate-month']) || !isset($_POST['birthdate-year']) || !isset($_POST['gender']) ||
-    !isset($_POST['campus'])) {
+    !isset($_POST['campus']) || !isset($_POST['g-recaptcha-response'])) {
     $_SESSION['ERROR'] = 'Invalid request !';
     header('Location: /');
     die();
 }
+
+$captchaResponse = $_POST['g-recaptcha-response'];
+$response = validateCaptcha($captchaResponse);
+if (!$response['success'])
+    $_SESSION['ERROR'] = 'Invalid Google Captcha !';
 
 $birthdateDay = $_POST['birthdate-day'];
 $birthdateMonth = $_POST['birthdate-month'];

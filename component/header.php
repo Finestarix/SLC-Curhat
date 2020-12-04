@@ -17,7 +17,7 @@ if(!isset($_SESSION))
 
     <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/fonts/Lobster-Regular.ttf">
+    <link href="/assets/fonts/Lobster-Regular.ttf">
 
     <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/vendor/font-awesome/css/all.css">

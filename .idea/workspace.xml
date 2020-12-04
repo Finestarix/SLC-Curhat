@@ -2,18 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cbee2d0c-24b0-4167-be41-308528b640b6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/component/secret.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/nav.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/nav.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/nav/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/component/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/nav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/post.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/secret.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/nav/secret.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/snackbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/nav/snackbar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/addSecretController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/addSecretController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/core/userController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/core/userController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/registerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/registerController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/routing/routingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/routing/routingController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/initialize.php" beforeDir="false" afterPath="$PROJECT_DIR$/initialize.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,17 +55,10 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\New Assistant Recuitment\4. NAR 21-1\02. Core Training NAR 21-1\PHPH3Special\Answer\controller" />
-      <recent name="D:\New Assistant Recuitment\4. NAR 21-1\02. Core Training NAR 21-1\PHPH3Special\Answer\assets\fonts" />
-      <recent name="D:\New Assistant Recuitment\4. NAR 21-1\02. Core Training NAR 21-1\PHPH3Special\Answer\assets" />
-      <recent name="D:\New Assistant Recuitment\4. NAR 21-1\02. Core Training NAR 21-1\PHPH3Special\Answer\vendor\bootstrap\js" />
-      <recent name="D:\New Assistant Recuitment\4. NAR 21-1\02. Core Training NAR 21-1\PHPH3Special\Answer\vendor\bootstrap\css" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\New Assistant Recuitment\4. NAR 21-1\02. Core Training NAR 21-1\PHPH3Special\Answer\controller" />
       <recent name="D:\New Assistant Recuitment\4. NAR 21-1\02. Core Training NAR 21-1\PHPH3Special\Answer\controller\routing" />
@@ -73,17 +66,13 @@
       <recent name="D:\New Assistant Recuitment\4. NAR 21-1\02. Core Training NAR 21-1\PHPH3Special\Answer\util" />
       <recent name="D:\New Assistant Recuitment\4. NAR 21-1\02. Core Training NAR 21-1\PHPH3Special\Answer\config" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="util" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner directory="$PROJECT_DIR$/util" />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="PHPUnit.util" />
-      </list>
-    </recent_temporary>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\New Assistant Recuitment\4. NAR 21-1\02. Core Training NAR 21-1\PHPH3Special\Answer\component\nav" />
+      <recent name="D:\New Assistant Recuitment\4. NAR 21-1\02. Core Training NAR 21-1\PHPH3Special\Answer\assets\images\badge" />
+      <recent name="D:\New Assistant Recuitment\4. NAR 21-1\02. Core Training NAR 21-1\PHPH3Special\Answer\controller" />
+      <recent name="D:\New Assistant Recuitment\4. NAR 21-1\02. Core Training NAR 21-1\PHPH3Special\Answer\assets\fonts" />
+      <recent name="D:\New Assistant Recuitment\4. NAR 21-1\02. Core Training NAR 21-1\PHPH3Special\Answer\assets" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -103,7 +92,11 @@
       <workItem from="1605930536664" duration="11810000" />
       <workItem from="1606025123688" duration="24750000" />
       <workItem from="1606459588099" duration="5086000" />
-      <workItem from="1606641544554" duration="7347000" />
+      <workItem from="1606641544554" duration="12839000" />
+      <workItem from="1606717899485" duration="13945000" />
+      <workItem from="1606750626965" duration="4269000" />
+      <workItem from="1606980736419" duration="8613000" />
+      <workItem from="1607016343627" duration="17102000" />
     </task>
     <servers />
   </component>
@@ -111,27 +104,32 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="137" y="0" width="1092" height="736" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607017314248">
+      <screen x="0" y="0" width="1366" height="736" />
+    </state>
+    <state x="137" y="0" width="1092" height="736" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.736/1366.0.1366.738@0.0.1366.736" timestamp="1607017314248" />
     <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606646765521">
       <screen x="0" y="0" width="1366" height="736" />
     </state>
     <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.736/-1366.0.1366.738@0.0.1366.736" timestamp="1606646765521" />
-    <state x="463" y="122" key="FileChooserDialogImpl" timestamp="1606462991491">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1606982482475">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1606462991491" />
     <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.736/-1366.0.1366.738@0.0.1366.736" timestamp="1605696382946" />
-    <state x="517" y="291" key="NewPhpFileDialog" timestamp="1606646196380">
-      <screen x="0" y="0" width="1366" height="736" />
+    <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738/-1366.0.1366.738@0.0.1366.738" timestamp="1606982482475" />
+    <state x="517" y="292" key="NewPhpFileDialog" timestamp="1606988166952">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="517" y="288" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1606464271367" />
-    <state x="517" y="291" key="NewPhpFileDialog/0.0.1366.736/-1366.0.1366.738@0.0.1366.736" timestamp="1606646196380" />
+    <state x="517" y="291" key="NewPhpFileDialog/0.0.1366.736/-1366.0.1366.738@0.0.1366.736" timestamp="1606754082505" />
     <state x="517" y="291" key="NewPhpFileDialog/0.0.1366.736@0.0.1366.736" timestamp="1606052540878" />
-    <state x="517" y="292" key="NewPhpFileDialog/0.0.1366.738/-1366.0.1366.738@0.0.1366.738" timestamp="1605804637726" />
-    <state x="184" y="13" key="SettingsEditor" timestamp="1606459633207">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="517" y="292" key="NewPhpFileDialog/0.0.1366.738/-1366.0.1366.738@0.0.1366.738" timestamp="1606988166952" />
+    <state x="184" y="13" key="SettingsEditor" timestamp="1606736275907">
+      <screen x="0" y="0" width="1366" height="736" />
     </state>
     <state x="184" y="13" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1606459633207" />
-    <state x="184" y="13" key="SettingsEditor/0.0.1366.736/-1366.0.1366.738@0.0.1366.736" timestamp="1605694979447" />
+    <state x="184" y="13" key="SettingsEditor/0.0.1366.736/-1366.0.1366.738@0.0.1366.736" timestamp="1606736275907" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1605804715561">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -140,18 +138,26 @@
       <screen x="0" y="0" width="1366" height="736" />
     </state>
     <state x="500" y="282" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.736/-1366.0.1366.738@0.0.1366.736" timestamp="1606050417196" />
-    <state x="256" y="-8" width="1055" height="723" maximized="true" key="dock-window-1" timestamp="1606647329083">
-      <screen x="0" y="0" width="1366" height="736" />
+    <state x="-1193" y="-19" width="1042" height="723" maximized="true" key="dock-window-1" timestamp="1606732794349">
+      <screen x="-1366" y="0" width="1366" height="738" />
     </state>
-    <state x="256" y="-8" width="1055" height="723" maximized="true" key="dock-window-1/0.0.1366.736/-1366.0.1366.738@0.0.1366.736" timestamp="1606647329083" />
+    <state x="-1193" y="-19" width="1042" height="723" maximized="true" key="dock-window-1/0.0.1366.736/-1366.0.1366.738@0.0.1366.736" timestamp="1606732794349" />
+    <state x="-1339" y="0" width="1042" height="723" maximized="true" key="dock-window-2" timestamp="1606734606911">
+      <screen x="-1366" y="0" width="1366" height="738" />
+    </state>
+    <state x="-1339" y="0" width="1042" height="723" maximized="true" key="dock-window-2/0.0.1366.736/-1366.0.1366.738@0.0.1366.736" timestamp="1606734606911" />
+    <state x="-1366" y="0" width="1042" height="723" maximized="true" key="dock-window-3" timestamp="1606735714116">
+      <screen x="-1366" y="0" width="1366" height="738" />
+    </state>
+    <state x="-1366" y="0" width="1042" height="723" maximized="true" key="dock-window-3/0.0.1366.736/-1366.0.1366.738@0.0.1366.736" timestamp="1606735714116" />
     <state x="339" y="165" key="run.anything.popup" timestamp="1606642332428">
       <screen x="0" y="0" width="1366" height="736" />
     </state>
     <state x="339" y="165" key="run.anything.popup/0.0.1366.736/-1366.0.1366.738@0.0.1366.736" timestamp="1606642332428" />
     <state x="339" y="165" key="run.anything.popup/0.0.1366.738/-1366.0.1366.738@0.0.1366.738" timestamp="1605805798838" />
-    <state x="346" y="57" key="search.everywhere.popup" timestamp="1606025360376">
+    <state x="346" y="57" width="672" height="678" key="search.everywhere.popup" timestamp="1606722914825">
       <screen x="0" y="0" width="1366" height="736" />
     </state>
-    <state x="346" y="57" key="search.everywhere.popup/0.0.1366.736/-1366.0.1366.738@0.0.1366.736" timestamp="1606025360376" />
+    <state x="346" y="57" width="672" height="678" key="search.everywhere.popup/0.0.1366.736/-1366.0.1366.738@0.0.1366.736" timestamp="1606722914825" />
   </component>
 </project>

@@ -173,11 +173,11 @@ session_regenerate_id();
     </div>
 </nav>
 
-<?php if ($user == NULL) include('login.php') ?>
+<?php if ($user == NULL) include('nav/login.php') ?>
 
-<?php if ($user != NULL) include('secret.php') ?>
+<?php if ($user != NULL) include('nav/secret.php') ?>
 
-<?php include('snackbar.php') ?>
+<?php include('nav/snackbar.php') ?>
 
 <script>
     function showError() {

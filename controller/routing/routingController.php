@@ -22,16 +22,36 @@ class RoutingController {
         include 'controller/registerController.php';
     }
 
-    public function logout() {
-        include 'controller/logoutController.php';
-    }
-
     public function verification() {
         include 'controller/verificationController.php';
     }
 
+    public function logout() {
+        include 'controller/logoutController.php';
+    }
+
+    public function profile() {
+        include 'profile.php';
+    }
+
+    public function settings() {
+        include 'settings.php';
+    }
+
     public function storeSecret() {
         include 'controller/addSecretController.php';
+    }
+
+    public function updateProfile() {
+        include 'controller/updateProfileController.php';
+    }
+
+    public function updateAvatar() {
+        include 'controller/updateAvatarController.php';
+    }
+
+    public function updatePassword() {
+        include 'controller/updatePasswordController.php';
     }
 
 }

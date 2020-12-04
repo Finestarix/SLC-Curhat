@@ -2,6 +2,7 @@
 
 require_once(dirname(__FILE__) . '/core/CSRFController.php');
 require_once(dirname(__FILE__) . '/core/secretController.php');
+require_once(dirname(__FILE__) . '/core/userController.php');
 require_once(dirname(__FILE__) . '/../util/captchaHelper.php');
 require_once(dirname(__FILE__) . '/../util/sessionHelper.php');
 require_once(dirname(__FILE__) . '/../util/generatorHelper.php');
@@ -37,8 +38,10 @@ $secret->user_id = decryptSession($_SESSION['USER']);
 
 $affectedRow = insertSecret($secret);
 
-if ($affectedRow == 1)
+if ($affectedRow == 1) {
+    updateUserPoint($secret->user_id, 5);
     $_SESSION['SUCCESS'] = 'Success create new secret !';
+}
 else
     $_SESSION['ERROR'] = 'Failed to insert secret !';
 

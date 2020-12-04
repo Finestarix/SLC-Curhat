@@ -34,8 +34,8 @@ $user->email = $_POST['email'];
 $user->password = $_POST['password'];
 $user->birthdate = $birthdateYear . '-' . $birthdateMonth . '-' . $birthdateDay;
 $user->gender = (strcmp($_POST['gender'], "male") == 0) ? "Male" : "Female";
-$user->location = (strcmp($_POST['campus'], "kemanggisan") == 0) ? "Kemanggisan" :
-    (strcmp($_POST['campus'], "alsut") == 0) ? "Alam Sutera" : "Bekasi";
+$user->location = (strcasecmp($_POST['campus'], "kemanggisan") == 0) ? "Kemanggisan" :
+    ((strcasecmp($_POST['campus'], "alsut") == 0) ? "Alam Sutera" : "Bekasi");
 
 if (checkToken($_POST['CSRF_TOKEN']))
     $_SESSION['ERROR'] = 'Invalid CSRF Token !';
@@ -73,11 +73,9 @@ $user->point = 0;
 
 $user->id = generateUUID();
 $user->key = generateRandom(20);
+$user->image_path = "avatar_" . rand(1, 60) . ".png";
 
 list($user->password_salt, $user->password) = hashPassword($user->password);
-
-date_default_timezone_set('Asia/Jakarta');
-$user->created_at = date('Y-m-d H:i:s');
 
 $affectedRow = insertUser($user);
 

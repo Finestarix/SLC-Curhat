@@ -135,6 +135,7 @@ require_once('util/reportHelper.php');
                     `point` INT NOT NULL,
                     `key` VARCHAR(100) NOT NULL,
                     `verified` TINYINT NOT NULL,
+                    `image_path` VARCHAR(100) NOT NULL,
                     `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
                     PRIMARY KEY (`id`)
                 ) CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;",
@@ -151,8 +152,8 @@ require_once('util/reportHelper.php');
             $tableInsertQueries = [
                 'INSERT INTO `app_config` (`key`, `value`) VALUES (?, ?)',
                 'INSERT INTO `users` (`id`, `username`, `email`, `password`, `password_salt`, 
-                 `birthdate`, `gender`, `location`, `point`, `key`, `verified`) 
-                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                 `birthdate`, `gender`, `location`, `point`, `key`, `verified`, `image_path`) 
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
                 'INSERT INTO `secret` (`id`, `user_id`, `content`) VALUES (?, ?, ?)',
             ];
 
@@ -184,7 +185,7 @@ require_once('util/reportHelper.php');
 
             $userSeeder = [
                 [
-                    'ssssssssiss',
+                    'ssssssssssis',
                     '242f6b8c-1b3b-4c13-9394-412778e58ec1',
                     'Finestarix',
                     'irenaldyleonarto@gmail.com',
@@ -195,7 +196,8 @@ require_once('util/reportHelper.php');
                     'Kemanggisan',
                     15000,
                     '7102845f8c1425ba8503419208134f5816dda90d',
-                    1
+                    1,
+                    'avatar_5.png'
                 ]
             ];
 

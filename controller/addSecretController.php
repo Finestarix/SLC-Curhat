@@ -33,6 +33,11 @@ if (checkToken($_POST['CSRF_TOKEN']))
 else if (strlen($secret->content) <= 5 || strlen($secret->content) >= 200)
     $_SESSION['ERROR'] = 'Secret content length must between 5 and 200 characters !';
 
+if (isset($_SESSION['ERROR'])) {
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    die();
+}
+
 $secret->id = generateUUID();
 $secret->user_id = decryptSession($_SESSION['USER']);
 

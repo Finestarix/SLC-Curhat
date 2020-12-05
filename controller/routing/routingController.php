@@ -54,4 +54,8 @@ class RoutingController {
         include 'controller/updatePasswordController.php';
     }
 
+    public function mySecret() {
+        include 'mySecret.php';
+    }
+
 }

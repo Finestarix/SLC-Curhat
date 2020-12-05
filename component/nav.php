@@ -132,7 +132,7 @@ session_regenerate_id();
                             <i class="fa fa-id-badge mr-3"></i>
                             <div>My Profile</div>
                         </a>
-                        <a href="/my-secrets"
+                        <a href="/mySecret"
                            class="d-flex flex-row align-items-center dropdown-item dropdown-effect">
                             <i class="fa fa-envelope mr-3 no-underline dropdown-effect"></i>
                             <div>My Secrets</div>

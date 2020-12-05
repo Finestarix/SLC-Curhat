@@ -1,6 +1,12 @@
 <?php
 $username = $_GET['uname'];
 $currentUser = getUserByUsername($username);
+
+if (!$currentUser) {
+    $_SESSION['ERROR'] = 'Invalid username';
+    die();
+}
+
 $userJoinDate = strtotime($currentUser->created_at);
 $userParseDate = date("d M, Y");
 ?>
@@ -41,13 +47,18 @@ $userParseDate = date("d M, Y");
                     </div>
                 </div>
 
-                <div style="width: 250px">
-                    <div class="float-right mr-3">
-                        <a href="/settings" style="color: white !important;"
-                           class="btn btn-primary">Settings</a>
+                <?php
+                if (strcmp($user->username, $username) == 0) {
+                    ?>
+                    <div style="width: 250px">
+                        <div class="float-right mr-3">
+                            <a href="/settings" style="color: white !important;"
+                               class="btn btn-primary">Settings</a>
+                        </div>
                     </div>
-                </div>
-
+                    <?php
+                }
+                ?>
             </div>
 
             <div class="text-center mt-4">
@@ -73,7 +84,7 @@ $userParseDate = date("d M, Y");
                 </div>
 
                 <?php
-                if ($currentUser->verified == 1) {
+                if ($currentUser->verified == 1 && strcmp($user->username, $username) == 0) {
                     ?>
                     <div class="mt-3">
                         <img src="/assets/images/badge/verified.png" draggable="false"

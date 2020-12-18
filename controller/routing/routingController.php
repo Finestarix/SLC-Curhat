@@ -10,6 +10,10 @@ class RoutingController {
         include 'initialize.php';
     }
 
+    public function new() {
+        include 'new.php';
+    }
+
     public function loginController() {
         include 'controller/loginController.php';
     }
@@ -28,6 +32,14 @@ class RoutingController {
 
     public function logout() {
         include 'controller/logoutController.php';
+    }
+
+    public function likeController() {
+        include 'controller/likeSecretController.php';
+    }
+
+    public function dislikeController() {
+        include 'controller/dislikeSecretController.php';
     }
 
     public function profile() {

@@ -2,7 +2,6 @@
 require_once(dirname(__FILE__) . '/../util/timeHelper.php');
 
 $userBirthdate = $user->birthdate;
-$currentTime = date("Y-m-d H:i:s");
 $currentTime = date("Y-m-d H:i:s", time() + 60 * 60 * 6);
 $differentUserBirthdate = abs(strtotime($currentTime) - strtotime($userBirthdate));
 $differentUserYearBirthdate = floor($differentUserBirthdate / (365 * 60 * 60 * 24));
@@ -12,11 +11,23 @@ $differentUserYearBirthdate = floor($differentUserBirthdate / (365 * 60 * 60 * 2
          style="min-height: 100vh">
 
     <div class="container d-flex">
-        <div class="col px-0 mt-5">
-            <span class="h4">
-                <i class="fa fa-retweet" aria-hidden="true"></i>
-                Your Shared Secrets
-            </span>
+        <div class="col px-0">
+            <div class="row justify-content-center">
+                <div class="col-lg-4 align-self-center">
+                    <div class="btn-group btn-block">
+                        <a href="/" role="button"
+                           class="btn btn-light btn-block mt-4">
+                            <span><i class="fa fa-fire" aria-hidden="true"></i></span>
+                            <span>Hot</span>
+                        </a>
+                        <a href="/new" role="button"
+                           class="btn btn-light active btn-block mt-4">
+                            <span><i class="fa fa-star" aria-hidden="true"></i></span>
+                            <span>New</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -25,7 +36,7 @@ $differentUserYearBirthdate = floor($differentUserBirthdate / (365 * 60 * 60 * 2
 
             <?php
             require_once('controller/core/secretController.php');
-            $userSecrets = getMySecret();
+            $userSecrets = getNewSecret();
 
             while ($userSecret = $userSecrets->fetch_object()) {
                 $secretTime = $userSecret->created_at;

@@ -21,35 +21,14 @@ session_regenerate_id();
 
         <div class="d-flex flex-row align-items-center justify-content-center">
 
-            <a href="/">
-                <img width="50"
-                     src="/assets/images/logo.png"
-                     alt="SLC-Curhat">
+            <img width="50"
+                 src="/assets/images/logo.png"
+                 alt="SLC-Curhat">
+
+            <a href="/"
+               class="pl-5 no-underline color-nav h6">
+                <b>Explore</b>
             </a>
-
-            <div class="m-0 p-0 dropdown">
-                <div class="pl-5 dropdown-toggle color-nav h6" style="cursor: pointer">
-                    <b>Explore</b>
-                </div>
-                <div class="m-0 p-2 dropdown-menu" style="width: 180px">
-                    <a href="/popular"
-                       class="pt-2 pb-1 pl-3 pr-3 d-flex align-items-center no-underline dropdown-effect">
-                        <i class="fa fa-fire h5 text-secondary"></i>
-                        <div class="ml-3 text-secondary h6"><b>Popular</b></div>
-                    </a>
-                    <a href="/top"
-                       class="pt-2 pb-1 pl-3 pr-3 d-flex align-items-center no-underline dropdown-effect">
-                        <i class="fa fa-thumbs-up h5 text-success"></i>
-                        <div class="ml-2 text-success h6"><b>Most Likes</b></div>
-                    </a>
-                    <a href="/worst"
-                       class="pt-2 pb-1 pl-3 pr-3 d-flex align-items-center no-underline dropdown-effect">
-                        <i class="fa fa-thumbs-down h5 text-danger"></i>
-                        <div class="ml-2 text-danger h6"><b>The Worst</b></div>
-                    </a>
-                </div>
-
-            </div>
 
             <a href="/hof"
                class="pl-5 no-underline color-nav h6">
@@ -69,25 +48,25 @@ session_regenerate_id();
 
         </div>
 
-        <div class="d-flex flex-row align-items-center justify-content-center">
-
-            <div class="form-inline position-relative">
-
-                <label>
-                    <input style="width: 20em; border-radius: 20px"
-                           class="form-control mr-3 glyphicon glyphicon-remove-circle"
-                           placeholder="Search"
-                           type="text">
-                </label>
-
-                <div style="cursor: pointer; right: 30px;"
-                     class="fa fa-search position-absolute color-nav-2"
-                     id="search-button"
-                     aria-hidden="true"></div>
-
-            </div>
-
-        </div>
+<!--        <div class="d-flex flex-row align-items-center justify-content-center">-->
+<!---->
+<!--            <div class="form-inline position-relative">-->
+<!---->
+<!--                <label>-->
+<!--                    <input style="width: 20em; border-radius: 20px"-->
+<!--                           class="form-control mr-3 glyphicon glyphicon-remove-circle"-->
+<!--                           placeholder="Search"-->
+<!--                           type="text">-->
+<!--                </label>-->
+<!---->
+<!--                <div style="cursor: pointer; right: 30px;"-->
+<!--                     class="fa fa-search position-absolute color-nav-2"-->
+<!--                     id="search-button"-->
+<!--                     aria-hidden="true"></div>-->
+<!---->
+<!--            </div>-->
+<!---->
+<!--        </div>-->
 
         <?php
         if (!isset($_SESSION['USER'])) {
@@ -115,10 +94,10 @@ session_regenerate_id();
             ?>
             <div class="d-flex flex-row align-items-center justify-content-center">
 
-                <div style="font-size: 25px; cursor: pointer;"
-                     class="mr-5 ">
-                    <i class="fas fa-envelope color-nav message-icon"></i>
-                </div>
+<!--                <div style="font-size: 25px; cursor: pointer;"-->
+<!--                     class="mr-5 ">-->
+<!--                    <i class="fas fa-envelope color-nav message-icon"></i>-->
+<!--                </div>-->
 
                 <div class="mr-5 dropdown color-nav position-relative">
                     <div class="dropdown-toggle" style="font-size: 25px; cursor: pointer">

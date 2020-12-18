@@ -11,12 +11,12 @@ if (!isset($_POST['CSRF_TOKEN']) || !(isset($_POST['avatar_user']) || isset($_FI
     header('Location: /');
     die();
 }
-//
-//if (checkToken($_POST['CSRF_TOKEN'])) {
-//    $_SESSION['ERROR'] = 'Invalid CSRF Token !';
-//    header('Location: /');
-//    die();
-//}
+
+if (checkToken($_POST['CSRF_TOKEN'])) {
+    $_SESSION['ERROR'] = 'Invalid CSRF Token !';
+    header('Location: /');
+    die();
+}
 
 $user = getCurrentUser();
 $affectedRow = 0;

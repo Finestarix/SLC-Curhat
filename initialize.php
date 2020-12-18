@@ -108,10 +108,12 @@ require_once('util/reportHelper.php');
                 "@" . $databaseConfig['HOST'] . " with username " . $databaseConfig['USERNAME'];
             echo createReport($reportSQLConnectName, $errorMessage);
 
-            $tableName = "2 tables (app_config, users)";
+            $tableName = "5 tables (app_config, users, secret, like_detail, dislike_detail)";
 
             $tableDropQueries = [
                 "DROP TABLE IF EXISTS `app_config`",
+                "DROP TABLE IF EXISTS `like_detail`",
+                "DROP TABLE IF EXISTS `dislike_detail`",
                 "DROP TABLE IF EXISTS `secret`",
                 "DROP TABLE IF EXISTS `users`",
             ];
@@ -147,6 +149,22 @@ require_once('util/reportHelper.php');
                     PRIMARY KEY (`id`),
                     FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON UPDATE CASCADE ON DELETE CASCADE
                 ) CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;",
+                "CREATE TABLE `like_detail` (
+                  `secret_id` char(40) NOT NULL,
+                  `user_id` char(40) NOT NULL,
+                  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  FOREIGN KEY (`secret_id`) REFERENCES `secret`(`id`),
+                  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`),
+                  PRIMARY KEY (`secret_id`, `user_id`)
+                ) CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;",
+                "CREATE TABLE `dislike_detail` (
+                  `secret_id` char(40) NOT NULL,
+                  `user_id` char(40) NOT NULL,
+                  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  FOREIGN KEY (`secret_id`) REFERENCES `secret`(`id`),
+                  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`),
+                  PRIMARY KEY (`secret_id`, `user_id`)
+                ) CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;",
             ];
 
             $tableInsertQueries = [
@@ -155,6 +173,8 @@ require_once('util/reportHelper.php');
                  `birthdate`, `gender`, `location`, `point`, `key`, `verified`, `image_path`) 
                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
                 'INSERT INTO `secret` (`id`, `user_id`, `content`) VALUES (?, ?, ?)',
+                'INSERT INTO `like_detail` (`user_id`, `secret_id`) VALUES (?, ?)',
+                'INSERT INTO `dislike_detail` (`user_id`, `secret_id`) VALUES (?, ?)',
             ];
 
             foreach ($tableDropQueries as $tableDropQuery)
@@ -222,6 +242,27 @@ require_once('util/reportHelper.php');
                 ]
             ];
 
+            $likeDetailSeeder = [
+                [
+                    'ss',
+                    '242f6b8c-1b3b-4c13-9394-412778e58ec1',
+                    'db90a3ec-271e-4b87-9404-7163d6c1ff24'
+                ],
+                [
+                    'ss',
+                    '242f6b8c-1b3b-4c13-9394-412778e58ec1',
+                    'e6b889aa-d4bc-482f-87ae-00ab304b894c'
+                ]
+            ];
+
+            $dislikeDetailSeeder = [
+                [
+                    'ss',
+                    '242f6b8c-1b3b-4c13-9394-412778e58ec1',
+                    '639350b2-5a2c-41f2-a1d1-ff004cf4a0ed'
+                ]
+            ];
+
             $initializeDatas = [
                 [
                     $tableInsertQueries[0],
@@ -234,6 +275,14 @@ require_once('util/reportHelper.php');
                 [
                     $tableInsertQueries[2],
                     $secretSeeder
+                ],
+                [
+                    $tableInsertQueries[3],
+                    $likeDetailSeeder
+                ],
+                [
+                    $tableInsertQueries[4],
+                    $dislikeDetailSeeder
                 ],
             ];
 
@@ -272,6 +321,14 @@ require_once('util/reportHelper.php');
 
             echo createReport($reportSeederName, [
                 "Secret data entered (" . count($secretSeeder) . " data(s))",
+            ]);
+
+            echo createReport($reportSeederName, [
+                "Like Detail data entered (" . count($secretSeeder) . " data(s))",
+            ]);
+
+            echo createReport($reportSeederName, [
+                "Dislike Detail data entered (" . count($dislikeDetailSeeder) . " data(s))",
             ]);
 
             $URI = '/';

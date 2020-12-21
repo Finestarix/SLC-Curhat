@@ -3,6 +3,19 @@
 require_once(dirname(__FILE__) . '/databaseController.php');
 require_once(dirname(__FILE__) . '/../../util/sessionHelper.php');
 
+if (!function_exists('getAllUser')) {
+    function getAllUser()
+    {
+        $connection = getConnection();
+
+        $query = "SELECT `username`, `created_at`, `gender`, `point`, `image_path` FROM `users`";
+
+        $preparedStatement = $connection->prepare($query);
+        $preparedStatement->execute();
+
+        return $preparedStatement->get_result();
+    }
+}
 
 if (!function_exists('getUserByUsername')) {
     function getUserByUsername($username)

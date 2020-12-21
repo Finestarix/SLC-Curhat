@@ -6,9 +6,13 @@ require_once(dirname(__FILE__) . '/../util/passwordHelper.php');
 
 session_start();
 
-if (!isset($_POST['CSRF_TOKEN']) || !isset($_POST['old-password']) || !isset($_POST['new-password']) ||
-    !isset($_POST['confirm-new-password'])) {
+if (!isset($_SESSION['USER']))
+    $_SESSION['ERROR'] = 'Login first !';
+else if (!isset($_POST['CSRF_TOKEN']) || !isset($_POST['old-password']) || !isset($_POST['new-password']) ||
+    !isset($_POST['confirm-new-password']))
     $_SESSION['ERROR'] = 'Invalid request !';
+
+if (isset($_SESSION['ERROR'])) {
     header('Location: /');
     die();
 }

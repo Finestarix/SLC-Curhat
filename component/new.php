@@ -1,10 +1,5 @@
 <?php
 require_once(dirname(__FILE__) . '/../util/timeHelper.php');
-
-$userBirthdate = $user->birthdate;
-$currentTime = date("Y-m-d H:i:s", time() + 60 * 60 * 6);
-$differentUserBirthdate = abs(strtotime($currentTime) - strtotime($userBirthdate));
-$differentUserYearBirthdate = floor($differentUserBirthdate / (365 * 60 * 60 * 24));
 ?>
 
 <section class="color-content background-content"
@@ -42,20 +37,25 @@ $differentUserYearBirthdate = floor($differentUserBirthdate / (365 * 60 * 60 * 2
                 $secretTime = $userSecret->created_at;
                 $showTime = getTotalTime($secretTime);
 
-                $secretContent = $userSecret->content;
-                ?>
+                $secretContent = preg_replace('#&lt;(/?(?:pre|b|em|u|ul|li|ol|strong|s|p|br))&gt;#', '<\1>',
+                    htmlspecialchars($userSecret->content, ENT_QUOTES));
 
+                $userBirthdate = $userSecret->userBirthdate;
+                $currentTime = date("Y-m-d H:i:s", time() + 60 * 60 * 6);
+                $differentUserBirthdate = abs(strtotime($currentTime) - strtotime($userBirthdate));
+                $differentUserYearBirthdate = floor($differentUserBirthdate / (365 * 60 * 60 * 24));
+                ?>
                 <div class="col-lg-4 py-4">
                     <div class="card border-0 h-100">
                         <div class="card-body d-flex flex-column">
 
                             <div class="row">
                                 <div class="col-10">
-                                    <h5 class="text-uppercase <?= (strcmp($user->gender, "Male") == 0) ?
+                                    <h5 class="text-uppercase <?= (strcmp($userSecret->userGender, "Male") == 0) ?
                                         "text-primary" : "text-danger" ?>">
-                                        <i class="fa <?= (strcmp($user->gender, "Male") == 0) ?
+                                        <i class="fa <?= (strcmp($userSecret->userGender, "Male") == 0) ?
                                             "fa-male" : "fa-female" ?>" aria-hidden="true"></i>
-                                        <?= $user->gender ?>, <?= $differentUserYearBirthdate ?>
+                                        <?= $userSecret->userGender ?>, <?= $differentUserYearBirthdate ?>
                                     </h5>
                                 </div>
                             </div>
@@ -80,7 +80,7 @@ $differentUserYearBirthdate = floor($differentUserBirthdate / (365 * 60 * 60 * 2
                                         <input type="hidden" name="secretID" value="<?= $userSecret->id ?>">
 
                                         <button style="cursor:pointer;"
-                                                class="btn <?= (strcmp($user->gender, "Male") == 0) ?
+                                                class="btn <?= (strcmp($userSecret->userGender, "Male") == 0) ?
                                                     "btn-primary" : "btn-danger" ?> btn-block mt-4">
                                         <span>
                                             <i class="fa fa-thumbs-up" aria-hidden="true"></i>
@@ -102,7 +102,7 @@ $differentUserYearBirthdate = floor($differentUserBirthdate / (365 * 60 * 60 * 2
 
                                         <button style="cursor:pointer;"
                                                 href="/likeController?id=<?= $userSecret->id ?>"
-                                                class="btn <?= (strcmp($user->gender, "Male") == 0) ?
+                                                class="btn <?= (strcmp($userSecret->userGender, "Male") == 0) ?
                                                     "btn-primary" : "btn-danger" ?> btn-block mt-4">
                                         <span>
                                             <i class="fa fa-thumbs-down"></i>

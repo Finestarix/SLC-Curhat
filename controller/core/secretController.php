@@ -7,9 +7,10 @@ if (!function_exists('getHotSecret')) {
     {
         $connection = getConnection();
 
-        $query = "SELECT secret.id, secret.user_id, secret.content, secret.created_at,
+        $query = "SELECT secret.id, secret.user_id, secret.content, secret.created_at, 
+                        users.gender AS `userGender`, users.birthdate AS `userBirthdate`,
                         likeDataOut.totalLike, dislikeDataOut.totalDislike
-                    FROM secret, (
+                    FROM secret, users, (
                         SELECT secret.id, dislikeDataIn.totalDislike AS totalDislike
                         FROM ( 
                             SELECT secret.id, COUNT(*) AS totalDislike 
@@ -28,7 +29,7 @@ if (!function_exists('getHotSecret')) {
                         ) AS likeDataIn
                         RIGHT JOIN secret ON secret.id = likeDataIn.id
                     ) AS likeDataOut
-                    WHERE secret.id = likeDataOut.id AND likeDataOut.id = dislikeDataOut.id
+                    WHERE secret.id = likeDataOut.id AND likeDataOut.id = dislikeDataOut.id AND users.id = secret.user_id
                     ORDER BY likeDataOut.totalLike DESC, dislikeDataOut.totalDislike ASC";
 
         $preparedStatement = $connection->prepare($query);
@@ -44,8 +45,9 @@ if (!function_exists('getNewSecret')) {
         $connection = getConnection();
 
         $query = "SELECT secret.id, secret.user_id, secret.content, secret.created_at,
+                        users.gender AS `userGender`, users.birthdate AS `userBirthdate`,
                         likeDataOut.totalLike, dislikeDataOut.totalDislike
-                    FROM secret, (
+                    FROM secret, users, (
                         SELECT secret.id, dislikeDataIn.totalDislike AS totalDislike
                         FROM ( 
                             SELECT secret.id, COUNT(*) AS totalDislike 
@@ -64,7 +66,7 @@ if (!function_exists('getNewSecret')) {
                         ) AS likeDataIn
                         RIGHT JOIN secret ON secret.id = likeDataIn.id
                     ) AS likeDataOut
-                    WHERE secret.id = likeDataOut.id AND likeDataOut.id = dislikeDataOut.id
+                    WHERE secret.id = likeDataOut.id AND likeDataOut.id = dislikeDataOut.id AND users.id = secret.user_id
                     ORDER BY `created_at` DESC";
 
         $preparedStatement = $connection->prepare($query);

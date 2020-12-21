@@ -14,6 +14,10 @@ class RoutingController {
         include 'new.php';
     }
 
+    public function hof() {
+        include 'hof.php';
+    }
+
     public function loginController() {
         include 'controller/loginController.php';
     }
@@ -47,6 +51,14 @@ class RoutingController {
     }
 
     public function settings() {
+        session_start();
+
+        if(!isset($_SESSION['USER'])) {
+            $_SESSION['ERROR'] = 'Login first !';
+            header('Location: /');
+            die();
+        }
+
         include 'settings.php';
     }
 
@@ -67,6 +79,14 @@ class RoutingController {
     }
 
     public function mySecret() {
+        session_start();
+
+        if(!isset($_SESSION['USER'])) {
+            $_SESSION['ERROR'] = 'Login first !';
+            header('Location: /');
+            die();
+        }
+
         include 'mySecret.php';
     }
 

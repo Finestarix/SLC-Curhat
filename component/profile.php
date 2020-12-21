@@ -1,9 +1,14 @@
 <?php
+if (!isset($_GET['uname'])){
+    $_SESSION['ERROR'] = 'Invalid request !';
+    die();
+}
+
 $username = $_GET['uname'];
 $currentUser = getUserByUsername($username);
 
 if (!$currentUser) {
-    $_SESSION['ERROR'] = 'Invalid username';
+    $_SESSION['ERROR'] = 'Invalid username !';
     die();
 }
 
@@ -22,19 +27,6 @@ $userParseDate = date("d M, Y");
 
                 <div class="card-profile-stats d-flex justify-content-center"
                      style="width: 250px">
-                    <!-- TODO: Get Total Stories -->
-                    <div class="d-flex flex-column text-center mx-2">
-                        <div><b>0</b></div>
-                        <div>Stories</div>
-                    </div>
-
-                    <!-- TODO: Get Total Comments -->
-                    <div class="d-flex flex-column text-center mx-2">
-                        <div><b>0</b></div>
-                        <div>Comments</div>
-                    </div>
-
-                    <!-- TODO: Get Total Points -->
                     <div class="d-flex flex-column text-center mx-2">
                         <div><b>+<?= $currentUser->point ?></b></div>
                         <div>Points</div>
@@ -48,7 +40,7 @@ $userParseDate = date("d M, Y");
                 </div>
 
                 <?php
-                if (strcmp($user->username, $username) == 0) {
+                if ($user != null && strcmp($user->username, $username) == 0) {
                     ?>
                     <div style="width: 250px">
                         <div class="float-right mr-3">
@@ -84,7 +76,7 @@ $userParseDate = date("d M, Y");
                 </div>
 
                 <?php
-                if ($currentUser->verified == 1 && strcmp($user->username, $username) == 0) {
+                if ($user != null &&  $currentUser->verified == 1 && strcmp($user->username, $username) == 0) {
                     ?>
                     <div class="mt-3">
                         <img src="/assets/images/badge/verified.png" draggable="false"

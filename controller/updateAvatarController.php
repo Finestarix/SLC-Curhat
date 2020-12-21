@@ -6,14 +6,14 @@ require_once(dirname(__FILE__) . '/../util/generatorHelper.php');
 
 session_start();
 
-if (!isset($_POST['CSRF_TOKEN']) || !(isset($_POST['avatar_user']) || isset($_FILES['avatar']))) {
+if (!isset($_SESSION['USER']))
+    $_SESSION['ERROR'] = 'Login first !';
+else if (!isset($_POST['CSRF_TOKEN']) || !(isset($_POST['avatar_user']) || isset($_FILES['avatar'])))
     $_SESSION['ERROR'] = 'Invalid request !';
-    header('Location: /');
-    die();
-}
-
-if (checkToken($_POST['CSRF_TOKEN'])) {
+else if (checkToken($_POST['CSRF_TOKEN']))
     $_SESSION['ERROR'] = 'Invalid CSRF Token !';
+
+if (isset($_SESSION['ERROR'])) {
     header('Location: /');
     die();
 }

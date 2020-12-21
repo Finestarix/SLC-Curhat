@@ -4,7 +4,6 @@ if(!isset($_SESSION))
     session_start();
 
 //ini_set('error_reporting', '0');
-
 ?>
 
 <head>

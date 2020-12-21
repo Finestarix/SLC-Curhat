@@ -4,13 +4,20 @@
     <list default="true" id="cbee2d0c-24b0-4167-be41-308528b640b6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/component/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/component/mySecret.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/mySecret.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/component/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/new.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/new.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/component/profile.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/core/secretController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/core/secretController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/core/userController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/core/userController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/dislikeSecretController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/dislikeSecretController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/likeSecretController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/likeSecretController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/routing/routingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/routing/routingController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/updateAvatarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/updateAvatarController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/initialize.php" beforeDir="false" afterPath="$PROJECT_DIR$/initialize.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/updatePasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/updatePasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/updateProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/updateProfileController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +78,11 @@
       <recent name="D:\New Assistant Recuitment\4. NAR 21-1\02. Core Training NAR 21-1\PHPH3Special\Answer\assets" />
     </key>
   </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value=";" />
+    </option>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
@@ -100,7 +112,10 @@
       <workItem from="1607306277436" duration="692000" />
       <workItem from="1607319153716" duration="652000" />
       <workItem from="1607409408765" duration="7615000" />
-      <workItem from="1608292648399" duration="14143000" />
+      <workItem from="1608292648399" duration="14438000" />
+      <workItem from="1608410218211" duration="216000" />
+      <workItem from="1608517337659" duration="5835000" />
+      <workItem from="1608531943903" duration="53000" />
     </task>
     <servers />
   </component>
@@ -123,14 +138,14 @@
     <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.736/-1366.0.1366.738@0.0.1366.736" timestamp="1605696382946" />
     <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738/-1366.0.1366.738@0.0.1366.738" timestamp="1606982482475" />
     <state x="1829" y="124" key="FileChooserDialogImpl/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1607161515841" />
-    <state x="517" y="291" key="NewPhpFileDialog" timestamp="1608314383177">
+    <state x="517" y="291" key="NewPhpFileDialog" timestamp="1608517505603">
       <screen x="0" y="0" width="1366" height="736" />
     </state>
     <state x="517" y="288" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1606464271367" />
     <state x="517" y="291" key="NewPhpFileDialog/0.0.1366.736/-1366.0.1366.738@0.0.1366.736" timestamp="1606754082505" />
     <state x="517" y="291" key="NewPhpFileDialog/0.0.1366.736/1366.0.1366.738@0.0.1366.736" timestamp="1608313070067" />
     <state x="1883" y="292" key="NewPhpFileDialog/0.0.1366.736/1366.0.1366.738@1366.0.1366.738" timestamp="1607068657227" />
-    <state x="517" y="291" key="NewPhpFileDialog/0.0.1366.736@0.0.1366.736" timestamp="1608314383177" />
+    <state x="517" y="291" key="NewPhpFileDialog/0.0.1366.736@0.0.1366.736" timestamp="1608517505603" />
     <state x="517" y="292" key="NewPhpFileDialog/0.0.1366.738/-1366.0.1366.738@0.0.1366.738" timestamp="1606988166952" />
     <state x="184" y="13" key="SettingsEditor" timestamp="1608305831332">
       <screen x="0" y="0" width="1366" height="736" />
@@ -159,14 +174,16 @@
       <screen x="-1366" y="0" width="1366" height="738" />
     </state>
     <state x="-1366" y="0" width="1042" height="723" maximized="true" key="dock-window-3/0.0.1366.736/-1366.0.1366.738@0.0.1366.736" timestamp="1606735714116" />
-    <state x="0" y="0" width="585" height="736" key="find.popup" timestamp="1608307310126">
+    <state x="0" y="0" width="585" height="736" key="find.popup" timestamp="1608520212608">
       <screen x="0" y="0" width="1366" height="736" />
     </state>
     <state x="0" y="0" width="585" height="736" key="find.popup/0.0.1366.736/1366.0.1366.738@0.0.1366.736" timestamp="1608307310126" />
-    <state x="1705" y="165" key="run.anything.popup" timestamp="1607085777910">
-      <screen x="1366" y="0" width="1366" height="738" />
+    <state x="0" y="0" width="585" height="736" key="find.popup/0.0.1366.736@0.0.1366.736" timestamp="1608520212608" />
+    <state x="339" y="165" key="run.anything.popup" timestamp="1608521003900">
+      <screen x="0" y="0" width="1366" height="736" />
     </state>
     <state x="339" y="165" key="run.anything.popup/0.0.1366.736/-1366.0.1366.738@0.0.1366.736" timestamp="1606642332428" />
+    <state x="339" y="165" key="run.anything.popup/0.0.1366.736@0.0.1366.736" timestamp="1608521003900" />
     <state x="339" y="165" key="run.anything.popup/0.0.1366.738/-1366.0.1366.738@0.0.1366.738" timestamp="1605805798838" />
     <state x="1705" y="165" key="run.anything.popup/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1607085777910" />
     <state x="346" y="57" width="672" height="678" key="search.everywhere.popup" timestamp="1606722914825">

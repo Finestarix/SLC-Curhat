@@ -31,7 +31,8 @@ $differentUserYearBirthdate = floor($differentUserBirthdate / (365 * 60 * 60 * 2
                 $secretTime = $userSecret->created_at;
                 $showTime = getTotalTime($secretTime);
 
-                $secretContent = $userSecret->content;
+                $secretContent = preg_replace('#&lt;(/?(?:pre|b|em|u|ul|li|ol|strong|s|p|br))&gt;#', '<\1>',
+                    htmlspecialchars($userSecret->content, ENT_QUOTES));
                 ?>
 
                 <div class="col-lg-4 py-4">

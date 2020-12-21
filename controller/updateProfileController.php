@@ -6,10 +6,14 @@ require_once(dirname(__FILE__) . '/../util/captchaHelper.php');
 
 session_start();
 
-if (!isset($_POST['CSRF_TOKEN']) || !isset($_POST['birthdate-day']) || !isset($_POST['birthdate-month']) ||
+if (!isset($_SESSION['USER']))
+    $_SESSION['ERROR'] = 'Login first !';
+else if (!isset($_POST['CSRF_TOKEN']) || !isset($_POST['birthdate-day']) || !isset($_POST['birthdate-month']) ||
     !isset($_POST['birthdate-year']) || !isset($_POST['gender']) || !isset($_POST['campus']) ||
-    !isset($_POST['g-recaptcha-response'])) {
+    !isset($_POST['g-recaptcha-response']))
     $_SESSION['ERROR'] = 'Invalid request !';
+
+if (isset($_SESSION['ERROR'])) {
     header('Location: /');
     die();
 }

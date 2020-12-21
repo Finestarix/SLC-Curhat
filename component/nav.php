@@ -10,7 +10,6 @@ if (isset($_SESSION['USER']))
 regenerateToken();
 
 session_regenerate_id();
-
 ?>
 
 <link rel="stylesheet" href="/assets/css/nav.css">
